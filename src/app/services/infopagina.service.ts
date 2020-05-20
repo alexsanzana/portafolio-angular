@@ -9,14 +9,14 @@ export class InfopaginaService {
 
   info: InfoPagina = {};
   cargada = false;
-  equipo: any;
+  equipo: any[] = [];
 
   constructor( private http: HttpClient ) {
-    this.caragarInfo();
+    this.cargarInfo();
     this.cargarEquipo();
   }
 
-  private caragarInfo() {
+  private cargarInfo() {
      this.http.get('assets/data/data-pagina.json')
       .subscribe( (resp: InfoPagina) => {
         this.cargada = true;
